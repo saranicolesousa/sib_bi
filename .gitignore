@@ -133,3 +133,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# ficheiros locais
+.DS_Store
+_to_delete/
+test.csv
+test.data
