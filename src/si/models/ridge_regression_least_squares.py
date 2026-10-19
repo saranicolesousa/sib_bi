@@ -64,6 +64,8 @@ class RidgeRegressionLeastSquares(Model):
         if self.scale:
             self.mean = np.nanmean(dataset.X, axis=0)
             self.std = np.nanstd(dataset.X, axis=0)
+            # constant features have std = 0: keep them unscaled instead of dividing by zero
+            self.std[self.std == 0] = 1
             X = (dataset.X - self.mean) / self.std
         else:
             X = dataset.X
